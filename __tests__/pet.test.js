@@ -27,3 +27,23 @@ describe("growUp", () => {
     expect(pet.age).toEqual(1);
   })
 });
+
+describe("hunger", () => {
+  it("hunger increased when pet growUp", () => {
+    const pet = new Pet("Fido");
+
+    pet.growUp();
+
+    expect(pet.hunger).toEqual(pet.hunger = 5);
+  })
+});
+
+describe("fitness", () => {
+  it("fitness decreases when pet growUp", () => {
+    const pet = new Pet("Fido");
+
+    pet.growUp();
+
+    expect(pet.fitness).toEqual(pet.fitness = 7);
+  })
+});
