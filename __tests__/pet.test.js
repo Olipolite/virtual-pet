@@ -120,3 +120,41 @@ describe("checkUp", () => {
     expect(pet.checkUp()).toBe("I am hungry");
   })
 });
+
+describe("isAlive", () => {
+  it("checks if the pet is alive", () => {
+    const pet = new Pet("Fido");
+
+    expect(pet.isAlive).toBeTruthy();
+  })
+
+  it("checks if the pet is alive", () => {
+    const pet = new Pet("Fido");
+
+    pet.age = 31;
+    pet.hunger = 0;
+    pet. fitness = 10;
+
+    expect(pet.isAlive).toBeFalsy();
+  })
+
+  it("checks if the pet is alive", () => {
+    const pet = new Pet("Fido");
+
+    pet.age = 25;
+    pet.hunger = 12;
+    pet. fitness = 10;
+
+    expect(pet.isAlive).toBeFalsy();
+  })
+
+  it("checks if the pet is alive", () => {
+    const pet = new Pet("Fido");
+
+    pet.age = 15;
+    pet.hunger = 3;
+    pet. fitness = -4;
+
+    expect(pet.isAlive).toBeFalsy();
+  })
+});
