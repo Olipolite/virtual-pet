@@ -15,13 +15,18 @@ Pet.prototype = {
 };
 
 Pet.prototype.growUp = function() {
+    if (!this.isAlive) {
+        throw new Error('Your pet is no longer alive :(');
+    }
     this.age += 1;
     this.hunger += 5;
     this.fitness -= 3;
 };
 
 Pet.prototype.walk = function () {
-    if ((this.fitness + 4) <= 10 ) {
+    if (!this.isAlive) {
+        throw new Error('Your pet is no longer alive :(');
+    } else if ((this.fitness + 4) <= 10 ) {
       this.fitness +=4;
     } else {
       this.fitness = 10;
@@ -29,7 +34,9 @@ Pet.prototype.walk = function () {
 };
 
 Pet.prototype.feed = function () {
-    if ((this.hunger - 3) >= 0 ) {
+    if (!this.isAlive) {
+        throw new Error('Your pet is no longer alive :(');
+    } else if ((this.hunger - 3) >= 0 ) {
         this.hunger -= 3; 
     } else {
         this.hunger = 0;
@@ -43,7 +50,7 @@ Pet.prototype.checkUp = function () {
         return "I feel great";
     } else if (this.fitness <= 3) {
         return "I need a walk"
-    } else if (this.hunger >= 5) {
+    } else { (this.hunger >= 5) 
         return "I am hungry"
     };
 };
